@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { scrollToId } from '../utils/scrollToId'
-import { resumeUrl } from '../data/portfolio'
+import { resumeUrl, avatarUrl, name } from '../data/portfolio'
 
 const links = [
   { id: 'projects', label: 'Projects' },
@@ -38,9 +38,14 @@ export default function Navbar() {
       <nav className="max-w-5xl mx-auto flex items-center justify-between px-6 py-4">
         <button
           onClick={() => handleClick('hero')}
-          className="font-semibold text-text-h tracking-tight"
+          className="flex items-center gap-2 font-semibold text-text-h tracking-tight"
         >
-          Prerit Mittal
+          <img
+            src={avatarUrl}
+            alt=""
+            className="h-8 w-8 rounded-full object-cover"
+          />
+          {name}
         </button>
 
         <ul className="hidden md:flex items-center gap-8 text-sm">

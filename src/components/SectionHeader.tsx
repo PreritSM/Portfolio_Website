@@ -22,7 +22,7 @@ export function SectionHeading({ muted, children }: { muted: string; children: R
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.4 }}
       transition={{ duration: 0.5, delay: 0.05 }}
-      className="text-3xl md:text-5xl font-bold tracking-tight text-center leading-tight"
+      className="text-3xl md:text-5xl font-medium tracking-tight text-center leading-tight"
     >
       <span className="text-text">{muted} </span>
       <span className="text-text-h">{children}</span>

@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
-import { ArrowUpRight, ArrowDown } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { greeting, tagline, linkedin } from '../data/portfolio'
-import { scrollToId } from '../utils/scrollToId'
 
 export default function Hero() {
   return (
@@ -30,7 +29,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
-        className="max-w-4xl text-4xl md:text-6xl lg:text-[70px] font-bold tracking-tight leading-[1.1] text-text-h"
+        className="max-w-4xl text-4xl md:text-6xl lg:text-[70px] font-medium tracking-tight leading-[1.1] text-text-h"
       >
         {tagline}
       </motion.h1>
@@ -54,16 +53,6 @@ export default function Hero() {
           />
         </a>
       </motion.div>
-
-      <motion.button
-        onClick={() => scrollToId('about')}
-        aria-label="Scroll to About"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute bottom-10 text-text-dim hover:text-accent transition-colors"
-      >
-        <ArrowDown size={22} />
-      </motion.button>
     </section>
   )
 }

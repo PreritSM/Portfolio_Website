@@ -8,6 +8,8 @@ export const resumeUrl =
   'https://drive.google.com/file/d/1r6arhnWsGECq68AOM_euJfYIl4J-0c9U/view?usp=sharing'
 export const portraitUrl =
   'https://framerusercontent.com/images/Mnm6YSYXfomiSI3RZ6e8FwUNk.jpg?width=3024&height=4032'
+export const avatarUrl =
+  'https://framerusercontent.com/images/6eRLmA4mo9qovDisxrpWbkQUe4.jpeg?width=400&height=400'
 
 export const about = {
   paragraphs: [

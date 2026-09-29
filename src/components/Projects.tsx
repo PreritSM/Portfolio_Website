@@ -24,9 +24,7 @@ export default function Projects() {
           >
             <h3 className="text-lg font-semibold text-text-h">{p.title}</h3>
 
-            <p className="mt-4 text-sm font-semibold text-text-dim uppercase tracking-wide">
-              Project details
-            </p>
+            <p className="mt-4 font-medium text-text-h">Project details</p>
             <div className="mt-2 space-y-2">
               {p.details.map((d, j) => (
                 <p key={j} className="text-sm text-text leading-relaxed">
@@ -35,17 +33,14 @@ export default function Projects() {
               ))}
             </div>
 
-            <p className="mt-5 text-sm font-semibold text-text-dim uppercase tracking-wide">
-              What I did
-            </p>
-            <ul className="mt-2 space-y-1.5">
+            <p className="mt-5 font-medium text-text-h">What I did</p>
+            <div className="mt-2 space-y-2">
               {p.whatIDid.map((point, j) => (
-                <li key={j} className="text-sm text-text leading-relaxed pl-4 relative">
-                  <span className="absolute left-0 text-accent">–</span>
+                <p key={j} className="text-sm text-text leading-relaxed">
                   {point}
-                </li>
+                </p>
               ))}
-            </ul>
+            </div>
           </motion.article>
         ))}
       </div>
