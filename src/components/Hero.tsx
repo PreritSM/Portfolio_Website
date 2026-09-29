@@ -1,113 +1,83 @@
-import portfolio from '../data/portfolio';
-import { handleNavClick } from '../utils/scrollToId';
-import { getSocialIcon, DownloadIcon, LocationIcon, AcademicCapIcon, BriefcaseIcon } from './Icons';
+import { motion } from 'framer-motion'
+import { ArrowDown } from 'lucide-react'
+import { name, tagline, linkedin } from '../data/portfolio'
+import { scrollToId } from '../utils/scrollToId'
+import { SocialIcon } from './Icons'
 
-const Hero = () => {
+export default function Hero() {
   return (
-    <section id="hero" className="min-h-screen flex items-center pt-20">
-      <div className="section-container">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div className="order-2 lg:order-1 animate-fade-in">
-            <div className="space-y-6">
-              {/* Name */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white">
-                👋 Hi, I'm{' '}
-                <span className="gradient-text">{portfolio.name}</span>
-              </h1>
+    <section
+      id="hero"
+      className="relative min-h-screen flex flex-col items-center justify-center px-6 text-center overflow-hidden"
+    >
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10"
+        style={{
+          background:
+            'radial-gradient(60% 50% at 50% 20%, rgba(0,153,255,0.16), transparent 70%)',
+        }}
+      />
 
-              {/* Title */}
-              <p className="text-xl md:text-2xl text-dark-300 font-medium">
-                {portfolio.title}
-              </p>
+      <motion.p
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-sm uppercase tracking-[0.2em] text-accent mb-6"
+      >
+        Machine Learning Engineer
+      </motion.p>
 
-              {/* Bio */}
-              <p className="text-dark-400 text-lg leading-relaxed max-w-xl">
-                {portfolio.bio}
-              </p>
+      <motion.h1
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+        className="text-5xl md:text-7xl font-bold tracking-tight text-text-h"
+      >
+        Hi, I'm <span className="gradient-text">{name}</span>
+      </motion.h1>
 
-              {/* Info Pills */}
-              <div className="flex flex-wrap gap-3">
-                {portfolio.location && (
-                  <div className="flex items-center gap-2 px-4 py-2 bg-dark-800/50 rounded-full text-dark-300">
-                    <LocationIcon className="w-4 h-4 text-primary-400" />
-                    <span className="text-sm">{portfolio.location}</span>
-                  </div>
-                )}
-                {portfolio.education[0] && (
-                  <div className="flex items-center gap-2 px-4 py-2 bg-dark-800/50 rounded-full text-dark-300">
-                    <AcademicCapIcon className="w-4 h-4 text-primary-400" />
-                    <span className="text-sm">{portfolio.education[0].period}</span>
-                  </div>
-                )}
-                {portfolio.experience[0] && (
-                  <div className="flex items-center gap-2 px-4 py-2 bg-dark-800/50 rounded-full text-dark-300">
-                    <BriefcaseIcon className="w-4 h-4 text-primary-400" />
-                    <span className="text-sm">{portfolio.experience[0].role}</span>
-                  </div>
-                )}
-              </div>
+      <motion.p
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="mt-6 max-w-2xl text-lg text-text"
+      >
+        {tagline}
+      </motion.p>
 
-              {/* CTA Buttons */}
-              <div className="flex flex-wrap gap-4 pt-4">
-                <a
-                  href={portfolio.resumeHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary"
-                >
-                  <DownloadIcon className="w-5 h-5" />
-                  Download Resume
-                </a>
-                <a
-                  href="#contact"
-                  onClick={(e) => handleNavClick(e, 'contact')}
-                  className="btn-secondary"
-                >
-                  Contact Me
-                </a>
-              </div>
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        className="mt-10 flex items-center gap-4"
+      >
+        <a
+          href={linkedin}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 rounded-full bg-accent text-bg font-medium px-6 py-3 hover:opacity-90 transition-opacity"
+        >
+          <SocialIcon icon="linkedin" size={18} />
+          Connect with me
+        </a>
+        <button
+          onClick={() => scrollToId('projects')}
+          className="inline-flex items-center gap-2 rounded-full border border-border text-text-h font-medium px-6 py-3 hover:border-accent hover:text-accent transition-colors"
+        >
+          View Projects
+        </button>
+      </motion.div>
 
-              {/* Social Links */}
-              <div className="flex items-center gap-4 pt-4">
-                {portfolio.socials.map((social) => {
-                  const Icon = getSocialIcon(social.icon);
-                  return (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="social-icon"
-                      aria-label={social.label}
-                    >
-                      <Icon />
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-
-          {/* Right Content - Profile Image */}
-          <div className="order-1 lg:order-2 flex justify-center animate-fade-in animate-delay-200">
-            <div className="relative">
-              {/* Decorative elements */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary-500 to-purple-500 rounded-full blur-2xl opacity-20 animate-pulse" />
-              <div className="absolute -inset-1 bg-gradient-to-r from-primary-500 to-purple-500 rounded-full opacity-75" />
-              
-              {/* Profile Image Placeholder */}
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-dark-800 border-4 border-dark-700 overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-8xl">{portfolio.name.charAt(0)}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <motion.button
+        onClick={() => scrollToId('about')}
+        aria-label="Scroll to About"
+        animate={{ y: [0, 8, 0] }}
+        transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute bottom-10 text-text-dim hover:text-accent transition-colors"
+      >
+        <ArrowDown size={22} />
+      </motion.button>
     </section>
-  );
-};
-
-export default Hero;
+  )
+}

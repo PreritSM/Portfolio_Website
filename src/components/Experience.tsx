@@ -1,63 +1,56 @@
-import portfolio from '../data/portfolio';
-import { BriefcaseIcon } from './Icons';
+import { motion } from 'framer-motion'
+import { career } from '../data/portfolio'
 
-const Experience = () => {
+export default function Experience() {
   return (
-    <section id="experience" className="bg-dark-900/30">
-      <div className="section-container">
-        <h2 className="section-heading text-center">Experience</h2>
-        <p className="section-subheading text-center">
-          My professional journey and work experience
-        </p>
+    <section id="career" className="max-w-3xl mx-auto px-6 py-28">
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.5 }}
+        className="text-sm uppercase tracking-[0.2em] text-accent mb-4 text-center"
+      >
+        Career
+      </motion.p>
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.5, delay: 0.05 }}
+        className="text-3xl md:text-4xl font-bold text-text-h text-center mb-16"
+      >
+        Experience
+      </motion.h2>
 
-        <div className="max-w-3xl mx-auto space-y-6">
-          {portfolio.experience.map((exp, index) => (
-            <div
-              key={index}
-              className="card group hover:scale-[1.01] transition-transform duration-300"
-            >
-              <div className="flex gap-4">
-                {/* Icon */}
-                <div className="flex-shrink-0">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-500/20 to-purple-500/20 flex items-center justify-center group-hover:from-primary-500/30 group-hover:to-purple-500/30 transition-colors">
-                    <BriefcaseIcon className="w-7 h-7 text-primary-400" />
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="flex-1">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
-                    <h3 className="text-xl font-semibold text-white">{exp.role}</h3>
-                    <span className="text-sm text-primary-400 font-medium">{exp.period}</span>
-                  </div>
-                  
-                  <p className="text-dark-400 font-medium mb-3">{exp.company}</p>
-                  <p className="text-dark-300 leading-relaxed mb-4">{exp.summary}</p>
-
-                  {/* Bullets */}
-                  {exp.bullets && exp.bullets.length > 0 && (
-                    <ul className="space-y-2">
-                      {exp.bullets.map((bullet, i) => (
-                        <li key={i} className="flex items-start gap-2 text-dark-400 text-sm">
-                          <span className="text-primary-400 mt-1">•</span>
-                          {bullet}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              </div>
+      <div className="relative border-l border-border pl-8 space-y-12">
+        {career.map((entry, i) => (
+          <motion.div
+            key={entry.role + entry.period}
+            initial={{ opacity: 0, x: -16 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: i * 0.08 }}
+            className="relative"
+          >
+            <span className="absolute -left-[2.35rem] top-1.5 w-3 h-3 rounded-full bg-accent" />
+            <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+              <h3 className="text-lg font-semibold text-text-h">
+                {entry.role}
+                {entry.org ? <span className="text-text"> · {entry.org}</span> : null}
+              </h3>
+              <span className="text-sm text-text-dim">{entry.period}</span>
             </div>
-          ))}
-
-          {/* More Coming Soon */}
-          <div className="text-center py-8">
-            <p className="text-dark-500 italic">More experiences coming soon...</p>
-          </div>
-        </div>
+            <ul className="mt-3 space-y-1.5">
+              {entry.points.map((point) => (
+                <li key={point} className="text-sm text-text leading-relaxed">
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        ))}
       </div>
     </section>
-  );
-};
-
-export default Experience;
+  )
+}

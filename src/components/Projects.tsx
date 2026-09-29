@@ -1,78 +1,54 @@
-import portfolio from '../data/portfolio';
-import { GitHubIcon } from './Icons';
+import { motion } from 'framer-motion'
+import { projects } from '../data/portfolio'
 
-const Projects = () => {
+export default function Projects() {
   return (
-    <section id="projects">
-      <div className="section-container">
-        <h2 className="section-heading text-center">Projects</h2>
-        <p className="section-subheading text-center">
-          A showcase of my work and side projects
-        </p>
+    <section id="projects" className="max-w-5xl mx-auto px-6 py-28">
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.5 }}
+        className="text-sm uppercase tracking-[0.2em] text-accent mb-4 text-center"
+      >
+        Portfolio
+      </motion.p>
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.5, delay: 0.05 }}
+        className="text-3xl md:text-4xl font-bold text-text-h text-center mb-16"
+      >
+        My Latest Projects
+      </motion.h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {portfolio.projects.map((project, index) => (
-            <div
-              key={index}
-              className="card group overflow-hidden hover:scale-[1.02] transition-transform duration-300"
-            >
-              {/* Project Image/Placeholder */}
-              <div className="relative h-48 -mx-6 -mt-6 mb-6 bg-gradient-to-br from-dark-800 to-dark-900 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-purple-500/10 group-hover:from-primary-500/20 group-hover:to-purple-500/20 transition-colors" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-6xl opacity-50">💻</span>
-                </div>
-                
-                {/* Status Badge */}
-                {project.status === 'coming-soon' && (
-                  <div className="absolute top-4 right-4 px-3 py-1 bg-dark-900/90 backdrop-blur-sm text-dark-300 text-xs font-medium rounded-full border border-dark-700">
-                    Coming Soon
-                  </div>
-                )}
-              </div>
-
-              {/* Content */}
-              <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-primary-400 transition-colors">
-                {project.title}
-              </h3>
-              <p className="text-dark-400 text-sm mb-4 line-clamp-2">
-                {project.description}
-              </p>
-
-              {/* Tech Stack */}
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tech.map((tech) => (
-                  <span key={tech} className="tag">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              {/* Links */}
-              <div className="flex items-center gap-3 pt-4 border-t border-dark-800">
-                {project.repoHref ? (
-                  <a
-                    href={project.repoHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-dark-300 hover:text-primary-400 transition-colors"
-                  >
-                    <GitHubIcon className="w-4 h-4" />
-                    Source
-                  </a>
-                ) : (
-                  <span className="flex items-center gap-2 text-sm text-dark-500 cursor-not-allowed">
-                    <GitHubIcon className="w-4 h-4" />
-                    Private
-                  </span>
-                )}
-              </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {projects.map((p, i) => (
+          <motion.article
+            key={p.title}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: (i % 2) * 0.08 }}
+            className="group rounded-2xl border border-border bg-surface p-6 hover:border-accent/50 hover:bg-surface-hover transition-colors"
+          >
+            <h3 className="text-lg font-semibold text-text-h">{p.title}</h3>
+            <p className="mt-2 text-sm text-text leading-relaxed">{p.description}</p>
+            <p className="mt-4 text-sm font-medium text-accent">{p.highlight}</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {p.tech.map((t) => (
+                <span
+                  key={t}
+                  className="text-xs rounded-full border border-border px-3 py-1 text-text-dim group-hover:text-text transition-colors"
+                >
+                  {t}
+                </span>
+              ))}
             </div>
-          ))}
-        </div>
+          </motion.article>
+        ))}
       </div>
     </section>
-  );
-};
-
-export default Projects;
+  )
+}

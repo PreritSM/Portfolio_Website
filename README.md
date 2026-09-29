@@ -1,121 +1,44 @@
-# Personal Portfolio Website
+# Prerit Mittal — Portfolio
 
-A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS.
+A single-page portfolio built with Vite, React, TypeScript, Tailwind CSS, and Framer Motion, migrated from a Framer site to a static, GitHub Pages-ready codebase.
 
-## 🚀 Quick Start
+## Stack
 
-### Prerequisites
-- Node.js 18+ installed
-- npm or yarn
+- Vite + React + TypeScript
+- Tailwind CSS v4 (`@tailwindcss/vite`)
+- Framer Motion for scroll/entrance animations
+- lucide-react for icons
 
-### Installation
+## Local development
 
 ```bash
-# Install dependencies
 npm install
-
-# Start development server
 npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
 ```
 
-## 📁 Project Structure
+Open the printed local URL (default `http://localhost:5173`).
 
-```
-Personal_Website/
-├── .github/
-│   └── workflows/
-│       └── deploy.yml        # GitHub Pages deployment
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/           # React components
-│   │   ├── About.tsx
-│   │   ├── Certifications.tsx
-│   │   ├── Contact.tsx
-│   │   ├── Education.tsx
-│   │   ├── Experience.tsx
-│   │   ├── Footer.tsx
-│   │   ├── Hero.tsx
-│   │   ├── Icons.tsx
-│   │   ├── Navbar.tsx
-│   │   ├── Projects.tsx
-│   │   └── Skills.tsx
-│   ├── data/
-│   │   └── portfolio.ts      # ⭐ EDIT THIS FILE TO UPDATE CONTENT
-│   ├── styles/
-│   │   └── globals.css
-│   ├── types/
-│   │   └── portfolio.ts
-│   ├── utils/
-│   │   └── scrollToId.ts
-│   ├── App.tsx
-│   ├── main.tsx
-│   └── vite-env.d.ts
-├── index.html
-├── package.json
-├── tailwind.config.js
-├── postcss.config.js
-├── tsconfig.json
-└── vite.config.ts
-```
-
-## ✏️ Customization
-
-### Update Your Information
-
-All content is centralized in **`src/data/portfolio.ts`**. Edit this single file to update:
-
-- **Name & Bio**: Your introduction
-- **Social Links**: LinkedIn, GitHub, Twitter, etc.
-- **Skills**: Technical skills with percentages
-- **Tools**: Tools & platforms you use
-- **Certifications**: Professional certifications
-- **Projects**: Your portfolio projects
-- **Experience**: Work experience
-- **Education**: Academic background
-- **Contact**: Contact information
-
-### Add Profile Image
-
-Replace the placeholder by:
-1. Add your image to `public/profile.jpg`
-2. Update `profileImage` in `portfolio.ts`
-
-### Add Project Images
-
-1. Add images to `public/projects/`
-2. Update the `image` field in each project
-
-## 🎨 Styling
-
-The site uses Tailwind CSS with a custom dark theme. Key colors:
-- **Primary**: Blue (#3b82f6)
-- **Background**: Dark slate (#0f172a)
-- **Text**: Light gray shades
-
-To customize colors, edit `tailwind.config.js`.
-
-## 🚀 Deployment
-
-### GitHub Pages (Automatic)
-
-1. Push to the `main` branch
-2. GitHub Actions will automatically build and deploy
-3. Enable GitHub Pages in Settings → Pages → Source: GitHub Actions
-
-### Manual Deployment
+## Build
 
 ```bash
 npm run build
-# Deploy the `dist` folder to any static host
+npm run preview   # preview the production build locally
 ```
 
-## 📜 License
+## Deploying to GitHub Pages
 
-MIT License - Feel free to use this template for your own portfolio!
+This repo includes `.github/workflows/deploy.yml`, which builds the site and publishes `dist/` to GitHub Pages automatically on every push to `main`.
+
+One-time setup:
+
+1. Push this repo to GitHub (remote already set to `origin`).
+2. In the GitHub repo settings, go to **Settings → Pages** and set **Source** to **GitHub Actions**.
+3. Push to `main` — the workflow builds and deploys automatically.
+
+The site will be available at `https://<username>.github.io/<repo-name>/`.
+
+`vite.config.ts` sets `base: '/Portfolio_Website/'` to match this repository's name so built asset paths resolve correctly under GitHub Pages' subpath. If you rename the repo, update `base` to match.
+
+## Content
+
+All copy (project descriptions, career history, skills, contact info) lives in `src/data/portfolio.ts` — edit that file to update site content without touching components.

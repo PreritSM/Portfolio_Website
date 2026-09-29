@@ -1,40 +1,28 @@
-import portfolio from '../data/portfolio';
-import { getSocialIcon } from './Icons';
+import { name, socials } from '../data/portfolio'
+import { SocialIcon } from './Icons'
 
-const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
+export default function Footer() {
   return (
-    <footer className="border-t border-dark-800">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          {/* Copyright */}
-          <p className="text-dark-400 text-sm text-center md:text-left">
-            © {currentYear} {portfolio.name}. All rights reserved.
-          </p>
-
-          {/* Social Links */}
-          <div className="flex items-center gap-4">
-            {portfolio.socials.map((social) => {
-              const Icon = getSocialIcon(social.icon);
-              return (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-dark-400 hover:text-primary-400 transition-colors"
-                  aria-label={social.label}
-                >
-                  <Icon className="w-5 h-5" />
-                </a>
-              );
-            })}
-          </div>
+    <footer className="border-t border-border">
+      <div className="max-w-5xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p className="text-sm text-text-dim">
+          © {new Date().getFullYear()} {name}. All rights reserved.
+        </p>
+        <div className="flex items-center gap-4">
+          {socials.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target={s.href.startsWith('http') ? '_blank' : undefined}
+              rel={s.href.startsWith('http') ? 'noreferrer' : undefined}
+              aria-label={s.label}
+              className="text-text-dim hover:text-accent transition-colors"
+            >
+              <SocialIcon icon={s.icon} size={18} />
+            </a>
+          ))}
         </div>
       </div>
     </footer>
-  );
-};
-
-export default Footer;
+  )
+}
