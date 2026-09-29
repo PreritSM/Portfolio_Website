@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion'
-import { ArrowDown } from 'lucide-react'
-import { name, tagline, linkedin } from '../data/portfolio'
+import { ArrowUpRight, ArrowDown } from 'lucide-react'
+import { greeting, tagline, linkedin } from '../data/portfolio'
 import { scrollToId } from '../utils/scrollToId'
-import { SocialIcon } from './Icons'
 
 export default function Hero() {
   return (
@@ -14,59 +13,46 @@ export default function Hero() {
         aria-hidden
         className="absolute inset-0 -z-10"
         style={{
-          background:
-            'radial-gradient(60% 50% at 50% 20%, rgba(0,153,255,0.16), transparent 70%)',
+          background: 'radial-gradient(60% 50% at 50% 20%, rgba(0,153,255,0.16), transparent 70%)',
         }}
       />
 
-      <motion.p
+      <motion.div
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-sm uppercase tracking-[0.2em] text-accent mb-6"
+        className="inline-flex items-center rounded-full border border-border bg-surface px-4 py-1.5 text-sm text-text-h mb-8"
       >
-        Machine Learning Engineer
-      </motion.p>
+        {greeting}
+      </motion.div>
 
       <motion.h1
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
-        className="text-5xl md:text-7xl font-bold tracking-tight text-text-h"
-      >
-        Hi, I'm <span className="gradient-text">{name}</span>
-      </motion.h1>
-
-      <motion.p
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="mt-6 max-w-2xl text-lg text-text"
+        className="max-w-4xl text-4xl md:text-6xl lg:text-[70px] font-bold tracking-tight leading-[1.1] text-text-h"
       >
         {tagline}
-      </motion.p>
+      </motion.h1>
 
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-        className="mt-10 flex items-center gap-4"
+        transition={{ duration: 0.6, delay: 0.25 }}
+        className="mt-10"
       >
         <a
           href={linkedin}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 rounded-full bg-accent text-bg font-medium px-6 py-3 hover:opacity-90 transition-opacity"
+          className="group inline-flex items-center gap-2 rounded-full border border-white/25 text-text-h font-medium px-6 py-3 transition-colors hover:bg-white hover:text-bg"
         >
-          <SocialIcon icon="linkedin" size={18} />
           Connect with me
+          <ArrowUpRight
+            size={18}
+            className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          />
         </a>
-        <button
-          onClick={() => scrollToId('projects')}
-          className="inline-flex items-center gap-2 rounded-full border border-border text-text-h font-medium px-6 py-3 hover:border-accent hover:text-accent transition-colors"
-        >
-          View Projects
-        </button>
       </motion.div>
 
       <motion.button

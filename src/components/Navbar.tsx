@@ -2,12 +2,11 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { scrollToId } from '../utils/scrollToId'
+import { resumeUrl } from '../data/portfolio'
 
 const links = [
-  { id: 'about', label: 'About' },
   { id: 'projects', label: 'Projects' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'career', label: 'Career' },
+  { id: 'about', label: 'About' },
   { id: 'contact', label: 'Contact' },
 ]
 
@@ -55,6 +54,16 @@ export default function Navbar() {
               </button>
             </li>
           ))}
+          <li>
+            <a
+              href={resumeUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="text-text hover:text-text-h transition-colors"
+            >
+              Resume/CV
+            </a>
+          </li>
         </ul>
 
         <button
@@ -83,6 +92,16 @@ export default function Navbar() {
               </button>
             </li>
           ))}
+          <li>
+            <a
+              href={resumeUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="block w-full text-left py-2 text-text hover:text-text-h transition-colors"
+            >
+              Resume/CV
+            </a>
+          </li>
         </motion.ul>
       )}
     </motion.header>
