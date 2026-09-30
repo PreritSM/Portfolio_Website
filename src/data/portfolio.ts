@@ -1,4 +1,4 @@
-import type { CareerEntry, FocusArea, Project, SkillIcon } from '../types/portfolio'
+import type { CareerEntry, FocusArea, Project, SkillGroup } from '../types/portfolio'
 
 export const name = 'Prerit Mittal'
 export const greeting = "Hello, I'm Prerit👋"
@@ -167,6 +167,17 @@ export const focusAreas: FocusArea[] = [
 
 export const career: CareerEntry[] = [
   {
+    role: 'Graduate Research Assistant',
+    from: '2025',
+    to: '2026',
+    points: [
+      'Architected a dual-model edge-to-cloud perception system via Triton Server, serving quantized YOLOv8-seg and Depth Anything V2, achieving 72 ms median end-to-end latency and 98 ms p95.',
+      'Enforced codified latency SLAs (p95 < 120 ms) by building an offline benchmarking tool for per-model p95/p99 inference analysis, catching regressions before deployment.',
+      'Improved readiness for real-time obstacle avoidance, maintaining a ~9.8 Hz usable update rate with 1.4% stale frames, by streaming near/mid/far obstacle metadata over a self-hosted WebRTC DataChannel.',
+      'Led multimodal dataset collection for a custom 3-DOF robotic arm in LeRobot format, handing off the pipeline for future VLA (Vision-Language-Action) model fine-tuning.',
+    ],
+  },
+  {
     role: 'Services Engineering Specialist',
     from: '2023',
     to: '2024',
@@ -198,20 +209,63 @@ export const career: CareerEntry[] = [
   },
 ]
 
-export const skillIcons: SkillIcon[] = [
-  { label: 'AWS', slug: 'amazonwebservices' },
-  { label: 'C++', slug: 'cplusplus' },
-  { label: 'Bash', slug: 'gnubash' },
-  { label: 'Kubernetes', slug: 'kubernetes' },
-  { label: 'PyTorch', slug: 'pytorch' },
-  { label: 'CUDA', slug: 'nvidia' },
-  { label: 'Docker', slug: 'docker' },
-  { label: 'PostgreSQL', slug: 'postgresql' },
-  { label: 'MongoDB', slug: 'mongodb' },
-  { label: 'MLflow', slug: 'mlflow' },
-  { label: 'GitHub', slug: 'github' },
-  { label: 'TensorFlow', slug: 'tensorflow' },
-  { label: 'Python', slug: 'python' },
+export const skillGroups: SkillGroup[] = [
+  {
+    title: 'Languages & Tools',
+    skills: ['Python', 'C++', 'CUDA', 'SQL', 'Git', 'Bash', 'Docker', 'Kubernetes'],
+  },
+  {
+    title: 'Frameworks & Libraries',
+    skills: [
+      'PyTorch',
+      'TensorFlow',
+      'Keras',
+      'NumPy',
+      'Pandas',
+      'Scikit-learn',
+      'OpenCV',
+      'Flask',
+      'FastAPI',
+    ],
+  },
+  {
+    title: 'Cloud & MLOps',
+    skills: [
+      'Weights & Biases',
+      'DVC',
+      'MLflow',
+      'GitHub Actions',
+      'AWS (EC2, S3, SageMaker, Bedrock)',
+    ],
+  },
+  {
+    title: 'DL & ML Techniques',
+    skills: [
+      'CNNs',
+      'NLP',
+      'Reinforcement Learning',
+      'LLMs',
+      'Model Optimization',
+      'Inference Acceleration',
+    ],
+  },
+  {
+    title: 'Data Engineering & Visualization',
+    skills: ['Databricks', 'PySpark', 'MongoDB', 'MSSQL', 'PostgreSQL', 'Neo4j', 'Terraform'],
+  },
+  {
+    title: 'Agentic AI & RAG',
+    skills: [
+      'LangGraph',
+      'LangChain',
+      'RAG',
+      'MCP',
+      'Tool Calling',
+      'Hybrid Retrieval',
+      'BM25',
+      'Vector Databases',
+    ],
+  },
 ]
 
 export const email = 'mail2preritmittal@gmail.com'

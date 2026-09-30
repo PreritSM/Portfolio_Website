@@ -48,8 +48,7 @@ export default function About() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5 }}
-        className="mt-12 rounded-2xl border border-border overflow-hidden"
-        style={{ background: 'rgb(14,14,14)' }}
+        className="glass mt-12 rounded-2xl overflow-hidden"
       >
         <div
           className="flex overflow-hidden py-6"

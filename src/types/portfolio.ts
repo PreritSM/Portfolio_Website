@@ -20,7 +20,7 @@ export interface CareerEntry {
   points: string[]
 }
 
-export interface SkillIcon {
-  label: string
-  slug: string
+export interface SkillGroup {
+  title: string
+  skills: string[]
 }

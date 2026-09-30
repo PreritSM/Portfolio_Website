@@ -37,21 +37,66 @@ Section anchors on the page: `#hero #about #projects #skills #career #contact`.
 Nav only links to Projects/About/Contact/Resume — Skills and Career are
 reachable by scrolling only, matching the real site.
 
-## Design tokens (extracted from the real site, not guessed)
+## Design tokens
 
-- Background `#111111`, surface `#1e1e1e`, border `#333333`
-- Text `#999999`, heading text `#ffffff`, dim text `#737373`
-- Accent `#0099ff` (bright blue — **not** indigo/violet)
-- Font: Inter (loaded via Google Fonts in `index.html`)
+The original tokens below were extracted from the live Framer site. The
+project has since intentionally diverged from a 1:1 Framer replica toward
+its own visual system (see "Visual system" below) — content/copy is still
+transcribed verbatim from the Framer site, but colors, card treatment, and
+the Hero background are now original design decisions, not scraped values.
+
+- Background `#0b0e14`, surface `#131826`, border `#232a39` (navy-tinted
+  dark palette — moved off the original flat grayscale `#111111`/`#1e1e1e`
+  to read as less of a direct Framer clone)
+- Text `#aeb8c7`, heading text `#eef1f7`, dim text `#7c8698`
+- Accent `#0099ff` (bright blue — **not** indigo/violet — kept from the
+  original Framer site by deliberate choice even as the rest of the
+  palette moved away from it)
+- Font: Inter (body/headings) + JetBrains Mono (tags, metrics, labels),
+  both loaded via Google Fonts in `index.html`
 - Section eyebrow: pill badge (`rounded-full border border-border bg-surface`)
 - Section heading: two-tone — first words muted gray, last word(s) white
   (see `SectionHeading` component)
 
-These were confirmed by inspecting the live site's rendered HTML/CSS
-directly (colors, font-family, border-radius, button styles), not just the
-text content — a plain WebFetch text extraction loses all of this, so if
-the design ever needs re-verification against the live site, prefer
-fetching real HTML/computed styles over a markdown-converted summary.
+If the design ever needs re-verification against the *original Framer
+content* (copy, structure), prefer fetching real HTML/computed styles over
+a markdown-converted summary — a plain WebFetch text extraction loses
+colors, font-family, border-radius, and button styles. This does not apply
+to the visual system itself (palette/glass/wave), which is now maintained
+independently of the Framer site.
+
+## Visual system (post-Framer-replica redesign)
+
+Partly inspired by the skills/card layout on
+`shahzeb-jadoon.github.io`, adapted to this site's own blue accent rather
+than copied wholesale:
+
+- **`.glass` utility** (`src/index.css`): the shared frosted-card look —
+  translucent background, `backdrop-filter: blur(14px) saturate(120%)`,
+  soft `rgba(255,255,255,.1)` border, layered shadow. Applied via
+  `className="glass ..."` alongside Tailwind layout/radius utilities
+  (don't also set `border`/`bg-surface` on the same element — `.glass`
+  already provides both). Currently used on: Skills cards, Projects
+  focus-area buttons + project cards, About's marquee panel.
+- **Hero wave** (`.hero-wave` in `src/index.css`, markup in `Hero.tsx`):
+  three absolutely-positioned, differently-timed rotating circles
+  (`accent`-blue base with dark blobs), replacing the old static radial
+  gradient. Respects `prefers-reduced-motion` (animation disabled). A
+  radial fade-to-`--color-bg` overlay sits above it so the wave dissolves
+  into the rest of the page instead of cutting off hard.
+- Skills section: previously an animated "Skills Sphere" pulling icons
+  from `cdn.simpleicons.org` — **removed**. Replaced with a categorized
+  `skillGroups` grid (`SkillGroup[]` in `types/portfolio.ts`, data in
+  `data/portfolio.ts`) rendered as `.glass` cards with monospace pill
+  tags, one card per category (Languages & Tools, Frameworks &
+  Libraries, Cloud & MLOps, DL & ML Techniques, Data Engineering &
+  Visualization, Agentic AI & RAG). The old `SkillIcon`/`skillIcons`
+  export no longer exists.
+
+When extending the visual system to more sections (Navbar, Contact,
+Footer haven't been touched yet), reuse `.glass` rather than inventing a
+new card style, and keep the accent at `#0099ff` unless explicitly asked
+to change it.
 
 ## Content accuracy
 
@@ -69,13 +114,12 @@ this project intentionally mirrors the source content 1:1.
   the "Connect with me" CTA, matching the real site) or would need a
   hand-rolled inline SVG. Check `node_modules/lucide-react/dist/lucide-react.d.ts`
   before assuming an icon export exists.
-- **Skills Sphere**: the real site renders a physics-based floating 3D
-  icon cloud pulling logos from `cdn.simpleicons.org`. This is recreated
-  as a simpler animated grid (`src/components/Skills.tsx`) using the same
-  icon set, not the literal physics simulation. The `amazonwebservices`
-  slug on simpleicons currently 404s (upstream removed it — true on the
-  live site too), so that tile has a text-fallback (`onError` swaps to a
-  "AWS" text badge).
+- **Skills section no longer matches the Framer site**: the real site
+  renders a physics-based floating 3D icon cloud pulling logos from
+  `cdn.simpleicons.org`. This project replaced that entirely with a
+  categorized `skillGroups` card grid (see "Visual system" above) — this
+  is a deliberate content/UX departure, not just a simplification, so
+  don't try to re-sync it with the live Framer site's sphere.
 - **Portrait photo**: `src/data/portfolio.ts` `portraitUrl` hotlinks the
   original photo from `framerusercontent.com`. This works but depends on
   Framer's CDN staying up. For a fully independent deploy, download the

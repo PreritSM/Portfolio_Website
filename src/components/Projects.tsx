@@ -22,7 +22,7 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.4, delay: i * 0.05 }}
-            className="text-left rounded-2xl border border-border bg-surface p-5 hover:border-accent/50 transition-colors"
+            className="glass text-left rounded-2xl p-5 hover:border-accent/50 transition-colors"
           >
             <h3 className="text-sm font-semibold text-text-h">{area.title}</h3>
             <p className="mt-2 text-xs text-text leading-relaxed">{area.description}</p>
@@ -40,7 +40,7 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, delay: (i % 2) * 0.08 }}
-            className="scroll-mt-24 rounded-2xl border border-border bg-surface p-6 hover:border-accent/50 transition-colors"
+            className="glass scroll-mt-24 rounded-2xl p-6 hover:border-accent/50 transition-colors"
           >
             <div className="flex items-start justify-between gap-3">
               <h3 className="text-lg font-semibold text-text-h">{p.title}</h3>
