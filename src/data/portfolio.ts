@@ -1,4 +1,4 @@
-import type { CareerEntry, Project, SkillIcon } from '../types/portfolio'
+import type { CareerEntry, FocusArea, Project, SkillIcon } from '../types/portfolio'
 
 export const name = 'Prerit Mittal'
 export const greeting = "Hello, I'm Prerit👋"
@@ -29,7 +29,9 @@ export const about = {
 
 export const projects: Project[] = [
   {
+    slug: 'adaptive-rag',
     title: 'Adaptive Multi-Agent RAG System',
+    status: 'Research',
     details: [
       'Engineered a multi-agent RAG system that could retrieve, verify, and synthesize answers while knowing when not to answer.',
       'Built with FastAPI, LangGraph, LangChain, vector search, and RAGAS, it emphasized citation-grounded responses, adaptive retrieval, and measurable hallucination control.',
@@ -40,7 +42,10 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: 'uav-obstacle-avoidance',
     title: 'Monocular Obstacle Avoidance For UAVs',
+    status: 'Systems',
+    metric: '≤90 ms · median inference latency',
     details: [
       'Designed a real-time monocular depth estimation pipeline using PyTorch and OpenCV for low-latency UAV obstacle avoidance.',
     ],
@@ -51,7 +56,10 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: 'wafer-defect-mlops',
     title: 'Wafer Defect Detection - MLOps',
+    status: 'Production',
+    metric: '60–80% · faster retraining setup',
     details: [
       'End-to-end MLOps pipeline on AWS (S3, Lambda, RDS, EC2, MLflow, Docker, FastAPI, DVC, GitHub Actions) for scalable model training, governance, and deployment.',
     ],
@@ -62,7 +70,10 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: 'llm-finetuning-grpo',
     title: 'Adaptive LLM Finetuning with GRPO',
+    status: 'Research',
+    metric: '+8.5% · GSM8K accuracy',
     details: [
       'Developed a reinforcement learning-based fine-tuning framework using LoRA, Unsloth, and GRPO to improve LLM reasoning.',
     ],
@@ -73,7 +84,9 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: 'podai',
     title: 'AI Serverless Podcast - PodAI',
+    status: 'Production',
     details: [
       'Built an AI-powered tutoring podcast platform that converts uploaded course materials like PDFs, images, and lecture videos into an engaging two-speaker teaching podcast tailored to user needs.',
       'The system used AWS services end to end for ingestion, transcription, script generation, speech synthesis, job orchestration, and user notifications, turning static learning content into an interactive audio format.',
@@ -84,7 +97,10 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: 'vgg16-cuda',
     title: 'VGG16 CUDA Kernels',
+    status: 'Systems',
+    metric: '2.5× · throughput boost',
     details: [
       'Optimized VGG16 convolution layers using CUDA (shared memory tiling, register coarsening, cuBLAS, Nsight) on NVIDIA GPUs.',
     ],
@@ -94,7 +110,10 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: 'autonomous-vehicle-nav',
     title: 'Autonomous Vehicle Navigation System',
+    status: 'Systems',
+    metric: '~0.85 mAP@0.50 · multi-class detection',
     details: [
       'Built a real-time autonomous driving system using YOLO-based perception, UFLD lane detection, and closed-loop control in CARLA simulator.',
     ],
@@ -105,7 +124,9 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: 'person-reid',
     title: 'Robust Person Re-Identification and Tracking',
+    status: 'Research',
     details: [
       'Developed a multi-object tracking system combining Faster R-CNN detection with Siamese network-based re-identification.',
     ],
@@ -114,6 +135,33 @@ export const projects: Project[] = [
       'Reduced identity switches in long sequences by training on MOT16 and Market-1501 with optimized embedding pipelines.',
       'Improved tracking stability by optimizing embedding representations and detection-reidentification integration.',
     ],
+  },
+]
+
+export const focusAreas: FocusArea[] = [
+  {
+    title: 'Applied LLMs & Agentic AI',
+    description:
+      'Multi-agent and retrieval systems designed to know when not to answer, not just how to answer.',
+    projectSlug: 'adaptive-rag',
+  },
+  {
+    title: 'ML Systems & MLOps',
+    description:
+      'Pipelines built for auditability and rollback safety, not just training-time accuracy.',
+    projectSlug: 'wafer-defect-mlops',
+  },
+  {
+    title: 'GPU & Performance Engineering',
+    description:
+      'Kernel-level tuning where the model and the hardware are optimized as one problem.',
+    projectSlug: 'vgg16-cuda',
+  },
+  {
+    title: 'Computer Vision & Autonomy',
+    description:
+      'Perception and control stacks that hold up under real-time and real-world constraints.',
+    projectSlug: 'autonomous-vehicle-nav',
   },
 ]
 

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { projects } from '../data/portfolio'
+import { focusAreas, projects } from '../data/portfolio'
+import { scrollToId } from '../utils/scrollToId'
 import { SectionBadge, SectionHeading } from './SectionHeader'
 
 export default function Projects() {
@@ -12,17 +13,47 @@ export default function Projects() {
         </div>
       </div>
 
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+        {focusAreas.map((area, i) => (
+          <motion.button
+            key={area.title}
+            onClick={() => scrollToId(`project-${area.projectSlug}`)}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.4, delay: i * 0.05 }}
+            className="text-left rounded-2xl border border-border bg-surface p-5 hover:border-accent/50 transition-colors"
+          >
+            <h3 className="text-sm font-semibold text-text-h">{area.title}</h3>
+            <p className="mt-2 text-xs text-text leading-relaxed">{area.description}</p>
+            <span className="mt-3 inline-block text-xs text-accent">See the work →</span>
+          </motion.button>
+        ))}
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {projects.map((p, i) => (
           <motion.article
-            key={p.title}
+            key={p.slug}
+            id={`project-${p.slug}`}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, delay: (i % 2) * 0.08 }}
-            className="rounded-2xl border border-border bg-surface p-6 hover:border-accent/50 transition-colors"
+            className="scroll-mt-24 rounded-2xl border border-border bg-surface p-6 hover:border-accent/50 transition-colors"
           >
-            <h3 className="text-lg font-semibold text-text-h">{p.title}</h3>
+            <div className="flex items-start justify-between gap-3">
+              <h3 className="text-lg font-semibold text-text-h">{p.title}</h3>
+              {p.status && (
+                <span className="shrink-0 rounded-full border border-border bg-bg px-3 py-1 text-xs text-text-dim">
+                  {p.status}
+                </span>
+              )}
+            </div>
+
+            {p.metric && (
+              <p className="mt-3 font-mono text-sm text-accent">{p.metric}</p>
+            )}
 
             <p className="mt-4 font-medium text-text-h">Project details</p>
             <div className="mt-2 space-y-2">
