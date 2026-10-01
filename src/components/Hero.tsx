@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
-import { greeting, tagline, linkedin } from '../data/portfolio'
+import { greeting, taglineLines, linkedin } from '../data/portfolio'
 
 export default function Hero() {
   return (
@@ -19,7 +19,7 @@ export default function Hero() {
         style={{ background: 'radial-gradient(60% 50% at 50% 30%, transparent 0%, var(--color-bg) 85%)' }}
       />
 
-      <div className="relative z-10 flex flex-col items-center">
+      <div className="relative z-10 flex w-full flex-col items-center">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -33,9 +33,14 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="max-w-4xl text-4xl md:text-6xl lg:text-[70px] font-medium tracking-tight leading-[1.1] text-text-h"
+          className="w-full max-w-7xl text-4xl md:text-6xl lg:text-[70px] font-medium tracking-tight leading-[1.1] text-text-h"
         >
-          {tagline}
+          {taglineLines.map((line, i) => (
+            <span key={i} className="md:block">
+              {i > 0 && ' '}
+              {line}
+            </span>
+          ))}
         </motion.h1>
 
         <motion.div

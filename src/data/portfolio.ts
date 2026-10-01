@@ -2,8 +2,12 @@ import type { CareerEntry, FocusArea, Project, SkillGroup } from '../types/portf
 
 export const name = 'Prerit Mittal'
 export const greeting = "Hello, I'm Prerit👋"
-export const tagline =
-  'Machine Learning Engineer building production ML systems that are fast, reliable, and measurable.'
+export const taglineLines = [
+  'Machine Learning Engineer building',
+  'production ML systems that are',
+  'fast, reliable, and measurable.',
+]
+export const tagline = taglineLines.join(' ')
 export const resumeUrl = `${import.meta.env.BASE_URL}Prerit_S_Mittal_Resume_Main.pdf`
 export const portraitUrl =
   'https://framerusercontent.com/images/Mnm6YSYXfomiSI3RZ6e8FwUNk.jpg?width=3024&height=4032'

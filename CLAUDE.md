@@ -34,7 +34,7 @@ src/
 ```
 
 Section anchors on the page: `#hero #about #projects #skills #career #contact`.
-Nav links to About/Projects/Career/Contact/Resume — Skills is
+Nav links to Home/About/Projects/Career/Contact/Resume — Skills is
 reachable by scrolling only.
 
 ## Design tokens

@@ -5,6 +5,7 @@ import { scrollToId } from '../utils/scrollToId'
 import { resumeUrl, avatarUrl, name } from '../data/portfolio'
 
 const links = [
+  { id: 'hero', label: 'Home' },
   { id: 'about', label: 'About' },
   { id: 'projects', label: 'Projects' },
   { id: 'career', label: 'Career' },

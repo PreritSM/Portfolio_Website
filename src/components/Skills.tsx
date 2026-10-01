@@ -4,7 +4,7 @@ import { SectionBadge, SectionHeading } from './SectionHeader'
 
 export default function Skills() {
   return (
-    <section id="skills" className="max-w-7xl mx-auto px-6 py-14">
+    <section id="skills" className="max-w-7xl mx-auto px-6 py-14 scroll-mt-16">
       <div className="flex flex-col items-center gap-6 mb-14">
         <SectionBadge>Skills</SectionBadge>
         <SectionHeading muted="What I">work with</SectionHeading>

@@ -5,7 +5,7 @@ import { SectionBadge, SectionHeading } from './SectionHeader'
 
 export default function Projects() {
   return (
-    <section id="projects" className="max-w-7xl mx-auto px-6 py-14 scroll-mt-20">
+    <section id="projects" className="max-w-7xl mx-auto px-6 py-14 scroll-mt-16">
       <div className="flex flex-col items-center mb-16">
         <SectionBadge>Portfolio</SectionBadge>
         <div className="mt-6">

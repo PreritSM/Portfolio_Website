@@ -6,7 +6,7 @@ export default function About() {
   const loopedKeywords = [...about.keywords, ...about.keywords]
 
   return (
-    <section id="about" className="max-w-7xl mx-auto px-6 py-14 scroll-mt-20">
+    <section id="about" className="max-w-7xl mx-auto px-6 py-14 scroll-mt-16">
       <div className="grid grid-cols-1 md:grid-cols-[minmax(0,480px)_1fr] gap-10 lg:gap-24 items-center max-w-[1120px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 24 }}

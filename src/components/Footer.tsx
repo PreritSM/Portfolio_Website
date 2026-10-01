@@ -8,7 +8,6 @@ const columnOne = [
 ]
 
 const columnTwo = [
-  { label: 'Contact me', kind: 'scroll' as const, target: 'contact' },
   { label: 'LinkedIn', kind: 'link' as const, target: linkedin },
 ]
 
