@@ -34,8 +34,8 @@ src/
 ```
 
 Section anchors on the page: `#hero #about #projects #skills #career #contact`.
-Nav only links to About/Projects/Contact/Resume — Skills and Career are
-reachable by scrolling only, matching the real site.
+Nav links to About/Projects/Career/Contact/Resume — Skills is
+reachable by scrolling only.
 
 ## Design tokens
 
@@ -126,7 +126,7 @@ this project intentionally mirrors the source content 1:1.
   image and serve it from `public/` instead.
 - **Resume**: served locally from `public/Prerit_S_Mittal_Resume_Main.pdf`.
   `resumeUrl` in `portfolio.ts` is built from `import.meta.env.BASE_URL` so
-  it resolves under the `/Portfolio_Website/` base on GitHub Pages. To
+  it resolves under the `/` base on GitHub Pages. To
   update the resume, replace that file (keep the name or update `resumeUrl`).
 
 ## Deployment
@@ -134,8 +134,8 @@ this project intentionally mirrors the source content 1:1.
 `.github/workflows/deploy.yml` builds and deploys `dist/` to GitHub Pages
 on every push to `main` (requires **Settings → Pages → Source: GitHub
 Actions** to be set once in the repo). `vite.config.ts` sets
-`base: '/Portfolio_Website/'` to match the GitHub repo name
-(`PreritSM/Portfolio_Website`) — update this if the repo is ever renamed.
+`base: '/'` because the site is a GitHub user site served at
+`https://prerit-mittal.github.io/` (repo `prerit-mittal/prerit-mittal.github.io`).
 
 ## Verifying changes
 

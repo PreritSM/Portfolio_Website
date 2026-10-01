@@ -7,6 +7,7 @@ import { resumeUrl, avatarUrl, name } from '../data/portfolio'
 const links = [
   { id: 'about', label: 'About' },
   { id: 'projects', label: 'Projects' },
+  { id: 'career', label: 'Career' },
   { id: 'contact', label: 'Contact' },
 ]
 

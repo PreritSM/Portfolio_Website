@@ -4,6 +4,6 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/Portfolio_Website/',
+  base: '/',
   plugins: [react(), tailwindcss()],
 })

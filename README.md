@@ -37,7 +37,7 @@ One-time setup:
 
 The site will be available at `https://<username>.github.io/<repo-name>/`.
 
-`vite.config.ts` sets `base: '/Portfolio_Website/'` to match this repository's name so built asset paths resolve correctly under GitHub Pages' subpath. If you rename the repo, update `base` to match.
+`vite.config.ts` sets `base: '/'` because the site is served from the root of the user site `https://prerit-mittal.github.io/` (repo must be named `prerit-mittal.github.io`).
 
 ## Content
 
