@@ -17,9 +17,13 @@ export default function App() {
         <Projects />
         <Skills />
         <Experience />
-        <Contact />
       </main>
-      <Footer />
+      <div id="contact" className="min-h-screen flex flex-col scroll-mt-0">
+        <div className="flex-1 flex items-center justify-center">
+          <Contact />
+        </div>
+        <Footer />
+      </div>
     </div>
   )
 }

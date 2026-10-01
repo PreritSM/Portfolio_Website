@@ -35,7 +35,7 @@ export default function Navbar() {
         scrolled ? 'bg-bg/80 backdrop-blur-md border-b border-border' : 'bg-transparent'
       }`}
     >
-      <nav className="max-w-5xl mx-auto flex items-center justify-between px-6 py-4">
+      <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         <button
           onClick={() => handleClick('hero')}
           className="flex items-center gap-2 font-semibold text-text-h tracking-tight"

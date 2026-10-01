@@ -37,7 +37,7 @@ function FooterLink({ link }: { link: (typeof columnOne)[number] }) {
 
 export default function Footer() {
   return (
-    <footer className="max-w-5xl mx-auto px-6 py-16">
+    <footer className="max-w-7xl mx-auto px-6 py-16">
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-10">
         <div>
           <div className="flex items-center gap-2">
