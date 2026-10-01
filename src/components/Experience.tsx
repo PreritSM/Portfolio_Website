@@ -33,7 +33,7 @@ export default function Experience() {
                 {entry.from} – {entry.to}
               </span>
             </div>
-            <ul className="mt-3 space-y-1.5">
+            <ul className="mt-3 space-y-1.5 list-disc pl-5 marker:text-accent">
               {entry.points.map((point) => (
                 <li key={point} className="text-sm text-text leading-relaxed">
                   {point}
