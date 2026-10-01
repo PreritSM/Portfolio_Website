@@ -16,8 +16,8 @@ export const avatarUrl =
 
 export const about = {
   paragraphs: [
-    "I'm an ML engineer who likes working at the point where models stop being academic and start being accountable. My work sits at that intersection: taking messy data, designing reliable pipelines, optimizing model behavior, and making sure the end system is something a team can actually run, trust, and improve over time.",
-    "I did not come into machine learning only from coursework. At GE Digital, I worked close to production systems where performance, upgrade safety, and data quality had direct operational consequences. That shaped how I think: not just about model accuracy, but about auditability, rollback safety, monitoring, infrastructure, and the engineering cost of every decision. You can see that same pattern across my projects from hardened wafer inspection pipelines and experiment tracking to CUDA kernel tuning and reinforcement-based LLM adaptation.",
+    "I'm an ML engineer who likes working at the point where models stop being academic and start being accountable. My work sits at that intersection: taking messy data, designing reliable pipelines, optimizing model behavior, and making sure the end system is something a team can actually run, trust, and improve over time. Increasingly, that includes agentic AI: LLM-driven agents and RAG systems that call tools, retrieve context, and make multi-step decisions, built with the same evaluation, guardrails, and observability I would expect from any production service.",
+    "I did not come into machine learning only from coursework. At GE Digital, I worked close to production systems where performance, upgrade safety, and data quality had direct operational consequences. That shaped how I think: not just about model accuracy, but about auditability, rollback safety, monitoring, infrastructure, and the engineering cost of every decision. You can see that same pattern across my projects from hardened wafer inspection pipelines and experiment tracking to CUDA kernel tuning, reinforcement-based LLM adaptation, and agentic RAG workflows.",
   ],
   keywords: [
     'Applied LLMs',
