@@ -20,7 +20,7 @@ export default function Contact() {
         transition={{ duration: 0.5, delay: 0.1 }}
         className="text-text mt-6 mb-10"
       >
-        Let's connect and build together.
+        Open to Forward-Deployed / Applied AI, ML Engineering, and Edge-AI roles — shipping ML that runs reliably in production, from GPU to edge. Based in Rochester, NY, USA, and open to relocation.
       </motion.p>
 
       <motion.div
