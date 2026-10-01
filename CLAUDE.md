@@ -134,8 +134,8 @@ this project intentionally mirrors the source content 1:1.
 `.github/workflows/deploy.yml` builds and deploys `dist/` to GitHub Pages
 on every push to `main` (requires **Settings → Pages → Source: GitHub
 Actions** to be set once in the repo). `vite.config.ts` sets
-`base: '/'` because the site is a GitHub user site served at
-`https://prerit-mittal.github.io/` (repo `prerit-mittal/prerit-mittal.github.io`).
+`base: '/Portfolio_Website/'` because the site is served from the project path
+`https://preritsm.github.io/Portfolio_Website/` (repo `PreritSM/Portfolio_Website`).
 
 ## Verifying changes
 
