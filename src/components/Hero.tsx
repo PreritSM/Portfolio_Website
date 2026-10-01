@@ -8,15 +8,11 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center px-6 text-center overflow-hidden"
     >
-      <div className="hero-wave" aria-hidden>
-        <span />
-        <span />
-        <span />
-      </div>
+      <div className="geo-bg absolute inset-0 z-0" aria-hidden />
       <div
         aria-hidden
         className="absolute inset-0 z-[1]"
-        style={{ background: 'radial-gradient(60% 50% at 50% 30%, transparent 0%, var(--color-bg) 85%)' }}
+        style={{ background: 'linear-gradient(to bottom, transparent 60%, var(--color-bg) 100%)' }}
       />
 
       <div className="relative z-10 flex w-full flex-col items-center">
