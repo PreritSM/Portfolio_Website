@@ -5,7 +5,7 @@ import { SectionBadge, SectionHeading } from './SectionHeader'
 
 export default function Contact() {
   return (
-    <section id="contact" className="max-w-3xl mx-auto px-6 py-28 text-center">
+    <section id="contact" className="max-w-3xl mx-auto px-6 py-14 text-center">
       <div className="flex flex-col items-center">
         <SectionBadge>Contact</SectionBadge>
         <div className="mt-6">
