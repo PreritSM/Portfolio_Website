@@ -33,6 +33,7 @@ export const about = {
 export const projects: Project[] = [
   {
     slug: 'adaptive-rag',
+    githubUrl: 'https://github.com/PreritSM/Adaptive-Multi-Agent-RAG-System',
     title: 'Adaptive Multi-Agent RAG System',
     status: 'Applied LLMs & Agentic AI',
     metrics: ['0.89 · RAGAS faithfulness', '77% · fewer hallucinations'],
@@ -47,6 +48,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'agentic-supply-chain-forecasting',
+    githubUrl: 'https://github.com/PreritSM/Autonomous-supply-chain-operations',
     title: 'Agentic Supply Chain Forecasting Pipeline',
     status: 'Applied LLMs & Agentic AI',
     metrics: ['92.4% · defect catch rate', '0.8% · false-quarantine rate'],
@@ -60,6 +62,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'uav-obstacle-avoidance',
+    githubUrl: 'https://github.com/PreritSM/Monocular_Obstacle_Avoidance_System',
     title: 'Monocular Obstacle Avoidance For UAVs',
     status: 'Computer Vision & Autonomy',
     metrics: [
@@ -78,6 +81,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'wafer-defect-mlops',
+    githubUrl: 'https://github.com/PreritSM/Wafer_Pulse',
     title: 'Wafer Defect Detection - MLOps',
     status: 'ML Systems & MLOps',
     metrics: ['60–80% · faster retraining'],
@@ -135,6 +139,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'autonomous-vehicle-nav',
+    githubUrl: 'https://github.com/PreritSM/Carla_Autonomous_Driving',
     title: 'Autonomous Vehicle Navigation System',
     status: 'Computer Vision & Autonomy',
     metrics: ['~0.85 mAP@0.50 · multi-class detection'],
@@ -294,4 +299,5 @@ export const skillGroups: SkillGroup[] = [
 
 export const email = 'mail2preritmittal@gmail.com'
 export const linkedin = 'https://www.linkedin.com/in/preritmittal/'
+export const github = 'https://github.com/PreritSM'
 export const tagline2 = 'Seeking Full Time opportunities'

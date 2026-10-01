@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { ArrowUpRight, Lock } from 'lucide-react'
 import { focusAreas, projects } from '../data/portfolio'
 import { scrollToId } from '../utils/scrollToId'
 import { SectionBadge, SectionHeading } from './SectionHeader'
@@ -43,11 +44,32 @@ export default function Projects() {
             className="glass scroll-mt-24 rounded-2xl p-6 hover:border-accent/50 transition-colors"
           >
             <h3 className="text-lg font-semibold text-text-h">{p.title}</h3>
-            {p.status && (
-              <span className="mt-2 inline-block rounded-full border border-border bg-bg px-3 py-1 text-xs text-text-dim">
-                {p.status}
-              </span>
-            )}
+            <div className="mt-2 flex flex-wrap items-center gap-2">
+                {p.status && (
+                  <span className="inline-block rounded-full border border-border bg-bg px-3 py-1 text-xs text-text-dim">
+                    {p.status}
+                  </span>
+                )}
+                {p.githubUrl ? (
+                  <a
+                    href={p.githubUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group inline-flex items-center gap-1 rounded-full border border-white/25 px-3 py-1 text-xs font-medium text-text-h transition-colors hover:bg-white hover:text-bg"
+                  >
+                    View on GitHub
+                    <ArrowUpRight
+                      size={12}
+                      className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    />
+                  </a>
+                ) : (
+                  <span className="inline-flex cursor-default items-center gap-1 rounded-full border border-dashed border-border px-3 py-1 text-xs text-text-dim">
+                    <Lock size={12} />
+                    Private repo
+                  </span>
+                )}
+            </div>
 
             {p.metrics && p.metrics.length > 0 && (
               <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1">

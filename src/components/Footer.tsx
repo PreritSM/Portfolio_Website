@@ -1,4 +1,4 @@
-import { name, tagline2, linkedin, resumeUrl, avatarUrl } from '../data/portfolio'
+import { name, tagline2, linkedin, github, resumeUrl, avatarUrl } from '../data/portfolio'
 import { scrollToId } from '../utils/scrollToId'
 
 const columnOne = [
@@ -9,6 +9,7 @@ const columnOne = [
 
 const columnTwo = [
   { label: 'LinkedIn', kind: 'link' as const, target: linkedin },
+  { label: 'GitHub', kind: 'link' as const, target: github },
 ]
 
 function FooterLink({ link }: { link: (typeof columnOne)[number] }) {

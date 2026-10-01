@@ -25,7 +25,7 @@ export default function App() {
         <Experience />
         <Divider />
       </main>
-      <div id="contact" className="min-h-screen flex flex-col scroll-mt-0">
+      <div id="contact" className="min-h-[calc(100vh-4rem)] flex flex-col scroll-mt-16">
         <div className="flex-1 flex items-center justify-center">
           <Contact />
         </div>

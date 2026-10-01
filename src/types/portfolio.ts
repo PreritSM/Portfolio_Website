@@ -5,6 +5,7 @@ export interface Project {
   metrics?: string[]
   details: string[]
   whatIDid: string[]
+  githubUrl?: string
 }
 
 export interface FocusArea {
