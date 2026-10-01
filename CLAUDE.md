@@ -34,7 +34,7 @@ src/
 ```
 
 Section anchors on the page: `#hero #about #projects #skills #career #contact`.
-Nav only links to Projects/About/Contact/Resume — Skills and Career are
+Nav only links to About/Projects/Contact/Resume — Skills and Career are
 reachable by scrolling only, matching the real site.
 
 ## Design tokens
@@ -124,9 +124,10 @@ this project intentionally mirrors the source content 1:1.
   original photo from `framerusercontent.com`. This works but depends on
   Framer's CDN staying up. For a fully independent deploy, download the
   image and serve it from `public/` instead.
-- **Resume**: no resume PDF is bundled locally — `resumeUrl` in
-  `portfolio.ts` links out to the user's Google Drive file, matching the
-  real site's "Resume/CV" behavior. There is no `public/resume.pdf`.
+- **Resume**: served locally from `public/Prerit_S_Mittal_Resume_Main.pdf`.
+  `resumeUrl` in `portfolio.ts` is built from `import.meta.env.BASE_URL` so
+  it resolves under the `/Portfolio_Website/` base on GitHub Pages. To
+  update the resume, replace that file (keep the name or update `resumeUrl`).
 
 ## Deployment
 

@@ -7,13 +7,13 @@ export default function About() {
 
   return (
     <section id="about" className="max-w-7xl mx-auto px-6 py-14 scroll-mt-20">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-[minmax(0,480px)_1fr] gap-10 lg:gap-24 items-center max-w-[1120px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="rounded-2xl border border-border overflow-hidden aspect-[3/4]"
+          className="w-full max-w-[480px] mx-auto md:mx-0 rounded-2xl border border-border overflow-hidden aspect-[480/580]"
         >
           <img
             src={portraitUrl}
@@ -48,7 +48,7 @@ export default function About() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5 }}
-        className="glass mt-12 rounded-2xl overflow-hidden"
+        className="glass mt-12 max-w-[1120px] mx-auto rounded-2xl overflow-hidden"
       >
         <div
           className="flex overflow-hidden py-6"
