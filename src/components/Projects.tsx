@@ -51,8 +51,14 @@ export default function Projects() {
               )}
             </div>
 
-            {p.metric && (
-              <p className="mt-3 font-mono text-sm text-accent">{p.metric}</p>
+            {p.metrics && p.metrics.length > 0 && (
+              <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1">
+                {p.metrics.map((m, j) => (
+                  <p key={j} className="font-mono text-sm text-accent">
+                    {m}
+                  </p>
+                ))}
+              </div>
             )}
 
             <p className="mt-4 font-medium text-text-h">Project details</p>

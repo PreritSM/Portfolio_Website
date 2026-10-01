@@ -31,21 +31,39 @@ export const projects: Project[] = [
   {
     slug: 'adaptive-rag',
     title: 'Adaptive Multi-Agent RAG System',
-    status: 'Research',
+    status: 'Applied LLMs & Agentic AI',
+    metrics: ['0.89 · RAGAS faithfulness', '77% · fewer hallucinations'],
     details: [
-      'Engineered a multi-agent RAG system that could retrieve, verify, and synthesize answers while knowing when not to answer.',
-      'Built with FastAPI, LangGraph, LangChain, vector search, and RAGAS, it emphasized citation-grounded responses, adaptive retrieval, and measurable hallucination control.',
+      'Engineered an uncertainty-aware multi-agent RAG system orchestrating an Agent Swarm with adaptive retrieval across ChromaDB, Qdrant, and BM25, built to know when not to answer rather than guessing.',
     ],
     whatIDid: [
-      'Designed the retrieval core across dense, sparse, and hybrid search, then added an uncertainty estimator to refuse weakly grounded responses.',
-      'Built the evaluation harness, prompt experiments, Dockerized deployment, and metric tracking for faithfulness, refusal rate, latency, and query cost.',
+      'Achieved 0.89 RAGAS faithfulness, 0.86 precision@3, and a 4.3% hallucination rate by orchestrating Agent Swarm with adaptive retrieval.',
+      'Reduced weak-context hallucinations by 77% by implementing cosine-similarity uncertainty scoring, threshold-based refusal, and claim-level self-correction loops.',
+      'Benchmarked search and retrieval tools to validate uncertainty thresholds and retrieval strategy choices.',
+    ],
+  },
+  {
+    slug: 'agentic-supply-chain-forecasting',
+    title: 'Agentic Supply Chain Forecasting Pipeline',
+    status: 'Applied LLMs & Agentic AI',
+    metrics: ['92.4% · defect catch rate', '0.8% · false-quarantine rate'],
+    details: [
+      'Engineered a self-correcting four-agent LangGraph pipeline over hierarchical Walmart retail sales series, with tool-based agent access orchestrated through three custom MCP servers.',
+    ],
+    whatIDid: [
+      'Achieved a 92.4% defect catch rate at a 0.8% false-quarantine rate and 0.584 WRMSSE forecast accuracy by engineering a self-correcting four-agent LangGraph pipeline.',
+      'Orchestrated tool-based agent access via three custom MCP servers atop a dual-backend abstraction supporting dbt-modeled Postgres and Databricks DLT (Auto Loader over Unity Catalog).',
     ],
   },
   {
     slug: 'uav-obstacle-avoidance',
     title: 'Monocular Obstacle Avoidance For UAVs',
-    status: 'Systems',
-    metric: '≤90 ms · median inference latency',
+    status: 'Computer Vision & Autonomy',
+    metrics: [
+      '≤90 ms · median inference latency',
+      '10–15 Hz · perception rate',
+      '≤3% · stale predictions',
+    ],
     details: [
       'Designed a real-time monocular depth estimation pipeline using PyTorch and OpenCV for low-latency UAV obstacle avoidance.',
     ],
@@ -58,22 +76,21 @@ export const projects: Project[] = [
   {
     slug: 'wafer-defect-mlops',
     title: 'Wafer Defect Detection - MLOps',
-    status: 'Production',
-    metric: '60–80% · faster retraining setup',
+    status: 'ML Systems & MLOps',
+    metrics: ['60–80% · faster retraining'],
     details: [
-      'End-to-end MLOps pipeline on AWS (S3, Lambda, RDS, EC2, MLflow, Docker, FastAPI, DVC, GitHub Actions) for scalable model training, governance, and deployment.',
+      'Built a production-grade wafer quality prediction system for SECOM sensor data, enabling auditable Pass/Fail classification through automated validation, MLflow tracking, and inference logging for drift monitoring.',
     ],
     whatIDid: [
-      'Reduced retraining setup time by 60–80% by orchestrating DVC versioning and GitHub Actions-driven EC2 training workflows.',
-      'Enabled 100% data auditability and sub-minute deployments by implementing Lambda validation, MLflow tracking, and Dockerized FastAPI services.',
-      'Strengthened data reliability by enforcing schema checks and persisting validated features in AWS RDS for consistent training/inference pipelines.',
+      'Accelerated retraining by 60–80% by versioning feature snapshots with DVC, automating GitHub Actions CI/CD, and launching on-demand EC2 training pipelines.',
+      'Enabled auditable Pass/Fail classification by building automated validation checks, MLflow experiment tracking, and inference logging for drift monitoring.',
     ],
   },
   {
     slug: 'llm-finetuning-grpo',
     title: 'Adaptive LLM Finetuning with GRPO',
-    status: 'Research',
-    metric: '+8.5% · GSM8K accuracy',
+    status: 'Applied LLMs & Agentic AI',
+    metrics: ['+8.5% · GSM8K accuracy'],
     details: [
       'Developed a reinforcement learning-based fine-tuning framework using LoRA, Unsloth, and GRPO to improve LLM reasoning.',
     ],
@@ -86,7 +103,7 @@ export const projects: Project[] = [
   {
     slug: 'podai',
     title: 'AI Serverless Podcast - PodAI',
-    status: 'Production',
+    status: 'ML Systems & MLOps',
     details: [
       'Built an AI-powered tutoring podcast platform that converts uploaded course materials like PDFs, images, and lecture videos into an engaging two-speaker teaching podcast tailored to user needs.',
       'The system used AWS services end to end for ingestion, transcription, script generation, speech synthesis, job orchestration, and user notifications, turning static learning content into an interactive audio format.',
@@ -99,8 +116,12 @@ export const projects: Project[] = [
   {
     slug: 'vgg16-cuda',
     title: 'VGG16 CUDA Kernels',
-    status: 'Systems',
-    metric: '2.5× · throughput boost',
+    status: 'GPU & Performance Engineering',
+    metrics: [
+      '2.5× · throughput boost',
+      '30% · higher GPU utilization',
+      '15% · lower memory latency',
+    ],
     details: [
       'Optimized VGG16 convolution layers using CUDA (shared memory tiling, register coarsening, cuBLAS, Nsight) on NVIDIA GPUs.',
     ],
@@ -112,8 +133,8 @@ export const projects: Project[] = [
   {
     slug: 'autonomous-vehicle-nav',
     title: 'Autonomous Vehicle Navigation System',
-    status: 'Systems',
-    metric: '~0.85 mAP@0.50 · multi-class detection',
+    status: 'Computer Vision & Autonomy',
+    metrics: ['~0.85 mAP@0.50 · multi-class detection'],
     details: [
       'Built a real-time autonomous driving system using YOLO-based perception, UFLD lane detection, and closed-loop control in CARLA simulator.',
     ],
@@ -126,7 +147,7 @@ export const projects: Project[] = [
   {
     slug: 'person-reid',
     title: 'Robust Person Re-Identification and Tracking',
-    status: 'Research',
+    status: 'Computer Vision & Autonomy',
     details: [
       'Developed a multi-object tracking system combining Faster R-CNN detection with Siamese network-based re-identification.',
     ],

@@ -2,7 +2,7 @@ export interface Project {
   slug: string
   title: string
   status?: string
-  metric?: string
+  metrics?: string[]
   details: string[]
   whatIDid: string[]
 }
